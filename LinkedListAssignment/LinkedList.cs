@@ -8,8 +8,8 @@ namespace LinkedListAssignment
 {
     internal class LinkedList
     {
-        internal Node head;  
-        internal void Append(int data) // this methods used to append the value in list
+        internal Node head;
+        internal void Add(int data) // this methods used to insert or add the value in list
         {
             Node node = new Node(data); // creating object of node class
             if (this.head == null) // if this condition becomes true then node address will be assign to head
@@ -23,7 +23,7 @@ namespace LinkedListAssignment
                 }
                 temp.next = node; // the node address will be store in next 
             }
-            
+            Console.WriteLine("{0} inserted into the linked list", node.data); // display the value stored in list
         }
 
         internal void Display() // this method is used to display the values in list
@@ -37,8 +37,27 @@ namespace LinkedListAssignment
             while (temp != null) // while loop is used to print one by one values present in linked list
             {
                 Console.Write(temp.data + " ");
-                temp = temp.next; 
+                temp = temp.next;
             }
+        }
+        internal void Insert(int data)
+        {
+            Node node = new Node(data);
+            if (this.head == null)
+                this.head = node;
+            else
+            {
+                Node temp = head;
+                Node middle = head;
+                while(temp.next != null && temp.next.next != null)
+                {
+                    temp = temp.next.next;
+                    middle = middle.next;
+                }
+                node.next = middle.next;
+                middle.next = node;
+            }
+            Console.WriteLine("{0} inserted in middle of linked list", node.data);
         }
     }
 }
