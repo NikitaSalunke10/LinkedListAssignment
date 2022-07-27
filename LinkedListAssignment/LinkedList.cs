@@ -59,5 +59,12 @@ namespace LinkedListAssignment
             }
             Console.WriteLine("{0} inserted in middle of linked list", node.data);
         }
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+                return null;
+            this.head = this.head.next;
+            return this.head;
+        }
     }
 }
