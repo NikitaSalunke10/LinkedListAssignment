@@ -132,5 +132,20 @@ namespace LinkedListAssignment
                 }
             }
         }
+        internal void DeleteAtPosition(int value)
+        {
+            Node temp = Search(value);
+            Node newNode = head;
+            for(int i = 0; newNode != temp; i++)
+            {
+                newNode = newNode.next;
+                if(newNode.next == temp)
+                {
+                    Node deleteNode = newNode.next;
+                    newNode.next = newNode.next.next;
+                    return;
+                }
+            }
+        }
     }    
 }
