@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LinkedListAssignment
 {
-    internal class Node
+    internal class Node 
     {
-        public int data;
-        public Node next;
-        public Node(int data)
+        public int data; // this will store the data or value 
+        public Node next;// this will store the address of next node
+        public Node(int data) // constructor is used to assign the value to data
         {
             this.data = data;
         }
