@@ -85,17 +85,52 @@ namespace LinkedListAssignment
         }
         internal Node Search(int value)// this method is used the search the given value in list
         {
-            while (this.head != null)// while loop is used to match the value with present elements in list one by one
+            Node current = head;
+            while (current != null)// while loop is used to match the value with present elements in list one by one
             {
-                if (this.head.data == value)//if statement is to check whether the value is same as head.data
+                if (current.data == value)//if statement is to check whether the value is same as head.data
                 { //if condition become true the below statement will be printed and return
                     Console.WriteLine("\nThe element {0} found in list", value);
-                    return this.head;
+                    return current;
                 }
-                this.head = this.head.next;//if value is doesn't match then next node address is assign to head
+                current = current.next;//if value is doesn't match then next node address is assign to head
             }
             Console.WriteLine("\nThe element {0} not found in list", value); //if value is not found in list then this statement is displayed
             return null;
         }
-    }
+        internal void InsertAtParticularPosition(int position, int data) // this method is used to insert a element at particular position
+        {
+            Node newNode = new Node(data);
+            if (position < 1) //here we are checking if position is greater than 1 or not
+            {
+                Console.WriteLine("\nInvalid Position.");
+            }
+            else if (position == 1) // if this condition becomes true it means that we have to insert the new value at head position
+            {
+                newNode.next = head; 
+                head = newNode;
+            }
+            else
+            {
+                Node temp = new Node(data);
+                temp = head; // storing head address in temp
+                for (int i = 1; i < position; i++) // for loop is used to find the address of given position
+                {
+                    if (temp != null)
+                    {
+                        temp = temp.next;
+                    }
+                }
+                if (temp != null) // this condition is used to check that the data we want to insert at position is not null
+                {
+                    newNode.next = temp.next; 
+                    temp.next = newNode; 
+                }
+                else
+                {
+                    Console.WriteLine("\nPrevious node is null");
+                }
+            }
+        }
+    }    
 }

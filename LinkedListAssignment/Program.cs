@@ -11,3 +11,6 @@ list.Display();
 //Console.WriteLine("\nList after deleting last node:");
 //list.Display();
 list.Search(30);
+list.InsertAtParticularPosition(2, 40);
+Console.WriteLine("After inserting value at particular position");
+list.Display();
