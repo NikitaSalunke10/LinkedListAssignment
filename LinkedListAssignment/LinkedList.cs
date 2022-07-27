@@ -9,7 +9,7 @@ namespace LinkedListAssignment
     internal class LinkedList
     {
         internal Node head;  
-        internal void Add(int data) // this methods used to insert or add the value in list
+        internal void Append(int data) // this methods used to append the value in list
         {
             Node node = new Node(data); // creating object of node class
             if (this.head == null) // if this condition becomes true then node address will be assign to head
@@ -23,7 +23,7 @@ namespace LinkedListAssignment
                 }
                 temp.next = node; // the node address will be store in next 
             }
-            Console.WriteLine("{0} inserted into the linked list", node.data); // display the value stored in list
+            
         }
 
         internal void Display() // this method is used to display the values in list
