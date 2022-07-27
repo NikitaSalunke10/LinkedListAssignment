@@ -83,5 +83,19 @@ namespace LinkedListAssignment
             newNode.next = null;
             return head;
         }
+        internal Node Search(int value)// this method is used the search the given value in list
+        {
+            while (this.head != null)// while loop is used to match the value with present elements in list one by one
+            {
+                if (this.head.data == value)//if statement is to check whether the value is same as head.data
+                { //if condition become true the below statement will be printed and return
+                    Console.WriteLine("\nThe element {0} found in list", value);
+                    return this.head;
+                }
+                this.head = this.head.next;//if value is doesn't match then next node address is assign to head
+            }
+            Console.WriteLine("\nThe element {0} not found in list", value); //if value is not found in list then this statement is displayed
+            return null;
+        }
     }
 }
