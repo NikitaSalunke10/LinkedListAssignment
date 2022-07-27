@@ -40,31 +40,34 @@ namespace LinkedListAssignment
                 temp = temp.next;
             }
         }
-        internal void Insert(int data)
+        internal void Insert(int data) // this method is used to insert the value in middle 
         {
             Node node = new Node(data);
-            if (this.head == null)
+            if (this.head == null) // if this condition becomes true then node address will be assign to head
                 this.head = node;
             else
             {
-                Node temp = head;
-                Node middle = head;
-                while(temp.next != null && temp.next.next != null)
+                Node temp = head; // assigning head address to temp
+                Node middle = head;// assigning head address to middle
+                while (temp.next != null && temp.next.next != null) // while loop is used to find the middle values where we can add the value
                 {
                     temp = temp.next.next;
                     middle = middle.next;
                 }
-                node.next = middle.next;
-                middle.next = node;
+                node.next = middle.next; // the address of current middle.next will be stored in next node
+                middle.next = node; // the new node address will be stored in middle.next
             }
             Console.WriteLine("{0} inserted in middle of linked list", node.data);
         }
-        internal Node RemoveFirstNode()
+        internal Node RemoveFirstNode() // this method is used to remove the first element
         {
-            if (this.head == null)
+            if (head == null) // if statement is used to check whether the list is empty
+            {
+                Console.WriteLine("List is empty");
                 return null;
-            this.head = this.head.next;
-            return this.head;
+            }
+            head = head.next; // we are assigning the next node address to head
+            return head;
         }
     }
 }
