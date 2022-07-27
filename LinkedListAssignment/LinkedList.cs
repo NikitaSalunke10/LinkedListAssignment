@@ -69,5 +69,19 @@ namespace LinkedListAssignment
             head = head.next; // we are assigning the next node address to head
             return head;
         }
+        internal Node RemovaLastNode()// this method is used to remove last node in list
+        {
+            if (head == null) // if statement is used to check whether the list is empty
+                return null;
+            if (head.next == null) //if statement is used to check whether the next node is null i.e. if list contains only head node
+                return null;
+            Node newNode = head; // head address is stored to newNode
+            while (newNode.next.next != null) // while loop is used to find the last second node
+            {
+                newNode = newNode.next; // the last second node next address will be stored in newNode
+            }
+            newNode.next = null;
+            return head;
+        }
     }
 }
