@@ -147,5 +147,34 @@ namespace LinkedListAssignment
                 }
             }
         }
+        internal void sort()
+        {
+            Node temp = this.head; // storing the head address to temp
+            Node index = null;
+            int tempNode;
+            if(head == null) // if statement is used to check if list is empty
+            {
+                Console.WriteLine("List is Empty");
+                return;
+            }
+            else //if condition becomes false then it means list is not empty and here sorting of list is done
+            {
+                while(temp != null)
+                {
+                    index = temp.next; 
+                    while(index != null)
+                    {
+                        if(temp.data.CompareTo(index.data) > 0) // if temp.data is greater than index.data then we are swapping both with each other
+                        {
+                            tempNode=temp.data;
+                            temp.data = index.data; 
+                            index.data = tempNode;
+                        }
+                        index = index.next;
+                    }
+                    temp = temp.next;
+                }
+            }
+        }
     }    
 }
